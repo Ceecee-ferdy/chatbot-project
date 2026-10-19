@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { ChatInput } from "./components/ChatInput";
 import ChatMessages from "./components/ChatMessages";
 import { Chatbot } from "supersimpledev";
-import robotImage from "./assets/robot.png";
 import "./App.css";
 
 function App() {
+  const savedMessages = localStorage.getItem("messages");
+
   const [chatMessages, setChatMessages] = useState(
-    JSON.parse(localStorage.getItem("messages")) || [],
+    savedMessages ? JSON.parse(savedMessages) : [],
   );
   // const [chatMessages, setChatMessages] = array;
   // const chatMessages = array[0];
@@ -22,10 +23,8 @@ function App() {
         },
         "what is React?":
           "React is a popular JavaScript library for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components and manage the state of their applications efficiently.",
-      },
-      [],
-    );
-  });
+      });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("messages", JSON.stringify(chatMessages));
@@ -33,10 +32,11 @@ function App() {
 
   const title = `${chatMessages.length} Messages`;
 
+
   return (
     <>
       <title>{title}</title>
-      <link rel="icon" type="image/svg+xml" href={robotImage} />
+      <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}robot.png`} />
 
       <div className="app-container">
         {chatMessages.length === 0 && (

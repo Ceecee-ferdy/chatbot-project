@@ -3,9 +3,13 @@
  import dayjs from 'dayjs';
  import './ChatMessage.css';
 
+      type ChatMessageProps = {
+        message: React.ReactNode;
+        sender: string;
+        time: string | number;
+      }
 
-   console.log(userImage);
-      export function ChatMessage({ message, sender, time }) {
+      export function ChatMessage({ message, sender, time }: ChatMessageProps ) {
 
         const formattedTime = dayjs(time).format('h:mma');
        /* 

@@ -1,21 +1,30 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, type ReactNode } from 'react';
 import { ChatMessage } from './ChatMessage';
 import './ChatMessages.css';
-  
-  function useAutoScroll(dependencies) {
-           const containerRef = useRef(null)
 
-            useEffect(() => {
-              const containerElem = containerRef.current;
-              if(containerElem) {
-              containerElem.scrollTop = containerElem.scrollHeight;
-              }
-            }, dependencies);
+function useAutoScroll(dependencies: React.DependencyList) {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-            return containerRef;
+  useEffect(() => {
+    const containerElem = containerRef.current;
+    if (containerElem) {
+      containerElem.scrollTop = containerElem.scrollHeight;
+    }
+  }, [dependencies]);
+
+  return containerRef;
+}
+
+       type ChatMessagesProps = {
+        chatMessages:   {
+          id: string;
+          message: ReactNode;
+          sender: string;
+          time: string | number;
+        }[];
        }
  
-       function ChatMessages({ chatMessages }) {
+       function ChatMessages({ chatMessages }: ChatMessagesProps) {
          const chatMessagesRef = useAutoScroll([chatMessages]);
 
          return (
