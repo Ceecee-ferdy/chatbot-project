@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# React TypeScript Chatbot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple interactive chatbot built with React and TypeScript. This project demonstrates component-based development, state management, handling user input, asynchronous responses, and browser-based message persistence.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Try the Chatbot](https://chatbot-project-sigma-eosin.vercel.app/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Interactive Chat:** Send messages and receive chatbot responses.
+* **Asynchronous Responses:** Handles responses that arrive asynchronously.
+* **Message History:** Saves chat messages in the browser using `localStorage`.
+* **Unique ID Generation:** Demonstrates generating unique IDs using the browser's Crypto API.
+* **Reusable Components:** Separates the chat interface into reusable React components.
+* **TypeScript:** Uses TypeScript with React for the application.
+* **Responsive Interface:** Provides a chat interface designed for browser use.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+* React
+* TypeScript
+* Vite
+* CSS
+* `supersimpledev` chatbot library
+* Browser `localStorage` API
+
+## Getting Started
+
+### Prerequisites
+
+* Node.js
+* npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Ceecee-ferdy/chatbot-project.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd chatbot-project
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL displayed in your terminal.
+
+## Production Build
+
+To check the TypeScript project and create a production build, run:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## What I Learned
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Through this project, I practised building a React application with TypeScript, organizing reusable components, managing application state, persisting data in the browser, handling asynchronous chatbot responses, and preparing a project for production deployment.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Repository
+
+🔗 [View the source code on GitHub](https://github.com/Ceecee-ferdy/chatbot-project)
